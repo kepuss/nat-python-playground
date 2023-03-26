@@ -3,6 +3,12 @@ input_list = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 15
 
 def check_if_list_elements_differ_by_10(input):
     for item in range(len(input)-1):
+        if input[item] is None or input[item+1] is None:
+            raise TypeError("One of the elements is an empty value!")
+        if type(input[item]) is list or type(input[item+1]) is list:
+            raise TypeError("One of the elements is a nested array!")
+        if type(input[item]) is not int or type(input[item+1]) is not int:
+            raise TypeError("One of the elements is not an integer!")
         if input[item+1] - input[item] != 10:
             return False
     return True
