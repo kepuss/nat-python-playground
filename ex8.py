@@ -13,9 +13,12 @@ def count_spaces_and_commas_in_astring(string, words_pattern, characters_pattern
     if any(char.isdigit() for char in words_pattern):
         raise TypeError("No integers are allowed!")
     if not characters_pattern is '[,\s]+':
-        raise TypeError("We're looking for commas and spaces only!")
+        raise ValueError("We're looking for commas and spaces only!")
     return [x, y]
 
 
-print(count_spaces_and_commas_in_astring(
-    input_string, words_pattern, characters_pattern))
+try:
+    print(count_spaces_and_commas_in_astring(
+        input_string, words_pattern, characters_pattern))
+except Exception as e:
+    print("An error has occurred.", e)
