@@ -8,7 +8,7 @@ def find_indexes_below_threshold(input_list, threshold):
     if any(item < 0 for item in input_list):
         raise ValueError("Only positive integers are allowed!")
     if not type(threshold) is int:
-        raise TypeError("Only integers are allowed!")
+        raise TypeError("Only integers are allowed!") #TODO: check it for negatives, parse strings to integers, if not - throw a parsing error, think of adding a continue that makes sense
     for count, value in enumerate(input_list):
         if value < threshold:
             index_list.append(count)
@@ -20,3 +20,4 @@ try:
     print(find_indexes_below_threshold(input_list, threshold))
 except Exception as e:
     print("An error has occurred.", e)
+
