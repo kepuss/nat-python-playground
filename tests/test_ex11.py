@@ -1,4 +1,4 @@
-from ex11 import find_indexes_below_threshold
+from ex_solutions.ex11 import find_indexes_below_threshold
 import pytest
 
 

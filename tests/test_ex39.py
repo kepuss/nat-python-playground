@@ -1,4 +1,4 @@
-from ex39 import check_sum_of_nested_list_elements
+from ex_solutions.ex39 import check_sum_of_nested_list_elements
 import pytest
 
 

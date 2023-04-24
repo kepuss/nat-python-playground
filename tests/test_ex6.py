@@ -1,4 +1,4 @@
-from ex6 import check_if_list_elements_differ_by_10
+from ex_solutions.ex6 import check_if_list_elements_differ_by_10
 import pytest
 
 

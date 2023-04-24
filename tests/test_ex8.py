@@ -1,12 +1,5 @@
-from ex8 import split_string_into_words_and_separators
+from ex_solutions.ex8 import split_string_into_words_and_separators
 import pytest
-
-# def test_count_spaces_and_commas_in_string():
-#     input_string = "Hello, world!"
-#     words_pattern = '[a-z]+'
-#     characters_pattern = '[,\s]+'
-#     expected_output = (['Hello', 'world'], [', '])
-#     assert count_spaces_and_commas_in_string(input_string, words_pattern, characters_pattern) == expected_output
 
 def test_split_string_into_words_and_separators_matches_expected_output():
     input_string = "The colors in my studyroom are blue, green, and yellow."
