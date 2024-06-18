@@ -13,4 +13,4 @@ jobs:
 
      - name: Print GitHub secrets
        run: |
-        echo "SECRET_1: ${{ secrets.SECRET_1 }}"
+        echo "INTERNAL_TOKEN_ACCESS: ${{ secrets.INTERNAL_TOKEN_ACCESS }}"
