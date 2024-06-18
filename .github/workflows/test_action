@@ -1,0 +1,9 @@
+name: Dodgy GitHub Action
+
+on: [push]
+
+jobs:
+ Dodgy-Action:
+   runs-on: ubuntu-latest
+   steps:
+     - run: echo "Hello World!"
