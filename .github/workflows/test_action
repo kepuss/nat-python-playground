@@ -1,9 +1,15 @@
-name: Dodgy GitHub Action
+name: Echo Command
 
-on: [push]
+on:
+  push:
 
 jobs:
- Dodgy-Action:
-   runs-on: ubuntu-latest
-   steps:
-     - run: echo "Hello, Dodgy World!"
+  run-echo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run echo command
+      run: echo "Hello, this is a push event!"
