@@ -13,4 +13,4 @@ jobs:
 
      - name: Print GitHub secrets
        run: |
-        echo "INTERNAL_TOKEN_ACCESS: ${{ variables.INTERNAL_TOKEN_ACCESS }}"
+        echo "INTERNAL_ACCESS_TOKEN: ${{ secrets.INTERNAL_ACCESS_TOKEN }}"
