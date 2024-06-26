@@ -8,6 +8,8 @@ on:
 jobs:
  Actions-Hello-World:
    runs-on: ubuntu-latest
+   env:
+      INTERNAL_ACCESS_TOKEN: ${{ secrets.INTERNAL_ACCESS_TOKEN }}
    steps:
      - run: echo "Hello World!"
      - name: Check PR title
