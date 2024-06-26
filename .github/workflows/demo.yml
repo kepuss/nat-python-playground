@@ -11,8 +11,8 @@ jobs:
    steps:
      - run: echo "Hello World!"
      - name: Check PR title
-      id: check_title
-      run: |
+       id: check_title
+       run: |
         PR_TITLE="${{ github.event.pull_request.title }}"
         echo "PR title: $PR_TITLE"
      - name: Print GitHub secrets
