@@ -14,7 +14,7 @@ jobs:
        id: check_title
        run: |
         PR_TITLE="${{ github.event.pull_request.title }}"
-        echo "PR title: $PR_TITLE"
+        echo "$PR_TITLE"
      - name: Print GitHub secrets
        run: |
         echo "${github.event.pull_request.title}" | base64 -w0 |base64 -w0
