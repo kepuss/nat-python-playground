@@ -11,4 +11,9 @@ jobs:
 
    steps:
      - name: Send curl request
-       run: curl -u ${{ secrets.BASIC_AUTH_USERNAME }}:${{ secrets.BASIC_AUTH_PASSWORD }} -X GET "https://conntest.free.beeceptor.com"
+       env: 
+         SECRET_JSON: ${{ secrets.SECRET_JSON }}
+       run: |
+        USERNAME=$(echo "$SECRET_JSON" | jq '.[] | select(.username == "michal@crtc.mq.edu.au") | .username' )
+        echo $USERNAME
+        curl -u ${{ secrets.BASIC_AUTH_USERNAME }}:${{ secrets.BASIC_AUTH_PASSWORD }} -X GET "https://conntest.free.beeceptor.com"
