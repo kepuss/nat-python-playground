@@ -18,6 +18,6 @@ jobs:
          USERNAME: ${{ github.event.inputs.username }}
 
        run: |
-        PASSWORD=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .password' )
-        BODY=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .body' )
+        PASSWORD=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "$USERNAME") | .password' )
+        BODY=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "$USERNAME") | .body' )
         curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "$URL"
