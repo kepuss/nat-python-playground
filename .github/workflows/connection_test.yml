@@ -19,5 +19,5 @@ jobs:
 
        run: |
         PASSWORD=$(echo "$SECRET_JSON" | jq -r --arg USERNAME "$USERNAME" '.[] | select(.username == $USERNAME) | .password' )
-        BODY=$(echo "$SECRET_JSON" | jq -r --arg USERNAME "$USERNAME" '.[] | select(.username == "$USERNAME") | .body' )
+        BODY=$(echo "$SECRET_JSON" | jq -r --arg USERNAME "$USERNAME" '.[] | select(.username == $USERNAME) | .body' )
         curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "$URL"
