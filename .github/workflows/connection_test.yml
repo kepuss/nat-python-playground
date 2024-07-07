@@ -13,9 +13,9 @@ jobs:
      - name: Send curl request
        env: 
          SECRET_JSON: ${{ secrets.SECRET_JSON }}
+         URL: ${{ secrets.URL }}
        run: |
         USERNAME=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .username' )
         PASSWORD=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .password' )
         BODY=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .body' )
-        echo $USERNAME, $PASSWORD, $BODY
-        curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "https://conntest.free.beeceptor.com"
+        curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "$URL"
