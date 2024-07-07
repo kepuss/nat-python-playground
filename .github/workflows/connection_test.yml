@@ -1,0 +1,16 @@
+name: Connection Test
+
+on:
+  push:
+  pull_request:
+   types: [opened, synchronize]
+
+jobs:
+ send-curl:
+   runs-on: ubuntu-latest
+ steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send curl request
+        run: curl -X GET "https://conntest.free.beeceptor.com"
