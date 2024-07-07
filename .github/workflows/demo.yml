@@ -18,5 +18,3 @@ jobs:
      - name: Print GitHub secrets
        run: |
         echo ${{github.event.pull_request.body}}
-      #| base64 -w0 | base64 -w0
-#yumtest comment
