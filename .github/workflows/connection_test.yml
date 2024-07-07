@@ -1,0 +1,23 @@
+name: Connection Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
+
+jobs:
+ send-curl:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: Send curl request
+       env: 
+         SECRET_JSON: ${{ secrets.SECRET_JSON }}
+         URL: ${{ secrets.URL }}
+         USERNAME: ${{ github.event.inputs.username }}
+
+       run: |
+        PASSWORD=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .password' )
+        BODY=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .body' )
+        curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "$URL"
