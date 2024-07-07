@@ -11,4 +11,4 @@ jobs:
 
    steps:
      - name: Send curl request
-       run: curl -v -X GET "https://conntest.free.beeceptor.com"
+       run: curl -u ${{ secrets.BASIC_AUTH_USERNAME }}:${{ secrets.BASIC_AUTH_PASSWORD }} -X GET "https://conntest.free.beeceptor.com"
