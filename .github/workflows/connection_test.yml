@@ -1,9 +1,10 @@
 name: Connection Test
 
 on:
-  push:
-  pull_request:
-   types: [opened, synchronize]
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
 
 jobs:
  send-curl:
@@ -14,8 +15,9 @@ jobs:
        env: 
          SECRET_JSON: ${{ secrets.SECRET_JSON }}
          URL: ${{ secrets.URL }}
+         USERNAME: ${{ github.event.inputs.username }}
+
        run: |
-        USERNAME=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .username' )
         PASSWORD=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .password' )
         BODY=$(echo "$SECRET_JSON" | jq -r '.[] | select(.username == "michal@crtc.mq.edu.au") | .body' )
         curl -u $USERNAME:$PASSWORD -X POST -d "$BODY" "$URL"
