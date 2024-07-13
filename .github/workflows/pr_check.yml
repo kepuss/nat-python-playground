@@ -3,7 +3,7 @@ name: PR check
 on:
   push:
   pull_request:
-   types: [opened, synchronize]
+   types: [opened, synchronize, pull_request_target]
 
 jobs:
  check-pr:
