@@ -1,9 +1,7 @@
 name: PR check
 
 on:
-  push:
-  pull_request:
-   types: [opened, synchronize, pull_request_target]
+  pull_request_target
 
 jobs:
  check-pr:
